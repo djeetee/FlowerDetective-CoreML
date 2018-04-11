@@ -13,6 +13,7 @@
 		0898FB2A207E43DF00BBE923 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0898FB29207E43DF00BBE923 /* Assets.xcassets */; };
 		0898FB2D207E43DF00BBE923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0898FB2B207E43DF00BBE923 /* LaunchScreen.storyboard */; };
 		0898FB38207E43DF00BBE923 /* FlowerExpertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898FB37207E43DF00BBE923 /* FlowerExpertTests.swift */; };
+		0898FB43207E447200BBE923 /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0898FB42207E447200BBE923 /* FlowerClassifier.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		0898FB33207E43DF00BBE923 /* FlowerExpertTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowerExpertTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0898FB37207E43DF00BBE923 /* FlowerExpertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerExpertTests.swift; sourceTree = "<group>"; };
 		0898FB39207E43DF00BBE923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0898FB42207E447200BBE923 /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				0898FB29207E43DF00BBE923 /* Assets.xcassets */,
 				0898FB2B207E43DF00BBE923 /* LaunchScreen.storyboard */,
 				0898FB2E207E43DF00BBE923 /* Info.plist */,
+				0898FB42207E447200BBE923 /* FlowerClassifier.mlmodel */,
 			);
 			path = FlowerExpert;
 			sourceTree = "<group>";
@@ -197,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0898FB43207E447200BBE923 /* FlowerClassifier.mlmodel in Sources */,
 				0898FB25207E43DB00BBE923 /* ViewController.swift in Sources */,
 				0898FB23207E43DB00BBE923 /* AppDelegate.swift in Sources */,
 			);
