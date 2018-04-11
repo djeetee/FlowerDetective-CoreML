@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import CoreML
+import Vision
+
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var pickedImageView: UIImageView!
@@ -24,15 +27,55 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         // grab what the snapped pic
-        let pickedImage = info[UIImagePickerControllerOriginalImage]
-        
-        // load it int the image view
-        pickedImageView.image = pickedImage as? UIImage
+        if let pickedImage = info[UIImagePickerControllerEditedImage] as? UIImage {
+
+            // convert the image to CIImage format
+            guard let ciImage = CIImage(image: pickedImage) else {
+                fatalError("Error while converting the image to CIImage")
+            }
+            
+            // find out what it is
+            classifyImage(image: ciImage)
+            
+            // load it into the image view
+            pickedImageView.image = pickedImage
+
+        }
         
         // bye bye picker
         imagePicker.dismiss(animated: true, completion: nil)
+
+    }
+    
+    // called with the image to classify
+    func classifyImage(image: CIImage) {
+        // Init the model
+        guard let model = try? VNCoreMLModel(for: FlowerClassifier().model) else {
+            fatalError("Unable to intialize the CoreML model")
+        }
+        
+        // create a request and the completion handler
+        let classRequest = VNCoreMLRequest(model: model) { (request, error) in
+            // Completion handler
+            let flowerClassification = request.results?.first as? VNClassificationObservation
+            
+            // set the title bar to the classification result
+            self.navigationItem.title = flowerClassification?.identifier.capitalized
+        }
+        
+        // create the request handler
+        let handler = VNImageRequestHandler(ciImage: image)
+        
+        // classify and catch errors
+        do {
+            try handler.perform([classRequest])
+        } catch {
+            print(error)
+        }
+        
         
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
