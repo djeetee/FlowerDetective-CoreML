@@ -15,6 +15,7 @@
 		0898FB38207E43DF00BBE923 /* FlowerExpertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898FB37207E43DF00BBE923 /* FlowerExpertTests.swift */; };
 		0898FB43207E447200BBE923 /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0898FB42207E447200BBE923 /* FlowerClassifier.mlmodel */; };
 		08A5B50B207FC67E00DFC024 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5B50A207FC67E00DFC024 /* NetworkManager.swift */; };
+		08A5B50F208007E100DFC024 /* Icon-App-76x76@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A5B50E208007E100DFC024 /* Icon-App-76x76@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,7 @@
 		0898FB39207E43DF00BBE923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0898FB42207E447200BBE923 /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
 		08A5B50A207FC67E00DFC024 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		08A5B50E208007E100DFC024 /* Icon-App-76x76@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				0898FB29207E43DF00BBE923 /* Assets.xcassets */,
 				0898FB2B207E43DF00BBE923 /* LaunchScreen.storyboard */,
 				0898FB2E207E43DF00BBE923 /* Info.plist */,
+				08A5B50E208007E100DFC024 /* Icon-App-76x76@3x.png */,
 				0898FB42207E447200BBE923 /* FlowerClassifier.mlmodel */,
 			);
 			path = FlowerExpert;
@@ -184,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0898FB2D207E43DF00BBE923 /* LaunchScreen.storyboard in Resources */,
+				08A5B50F208007E100DFC024 /* Icon-App-76x76@3x.png in Resources */,
 				0898FB2A207E43DF00BBE923 /* Assets.xcassets in Resources */,
 				0898FB28207E43DB00BBE923 /* Main.storyboard in Resources */,
 			);
@@ -376,7 +380,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.crashtestapps.FlowerExpert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -394,7 +398,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.crashtestapps.FlowerExpert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
