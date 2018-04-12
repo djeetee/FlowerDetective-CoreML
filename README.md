@@ -1,5 +1,5 @@
 # FlowerExpert-CoreML
-A simple flower classifier using the caffe-oxford102 image classifier model that was converted to CoreML.
+A simple flower classifier using the [caffe-oxford102](http://www.robots.ox.ac.uk/~vgg/data/flowers/102/index.html) image classifier model that was converted to CoreML.
 
 The app allows the user to:
 - take a photo of a flower, 
