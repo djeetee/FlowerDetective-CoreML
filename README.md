@@ -6,3 +6,5 @@ The app allows the user to:
 - run the image through the neural network for classigications and then, 
 - retrieve a short blurb about its genus from Wikipedia
 
+
+![Flower Detective](./AppImages/AppScreen.png =200x)
