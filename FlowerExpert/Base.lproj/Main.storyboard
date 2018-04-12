@@ -24,17 +24,14 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ND9-O9-pA3">
                                 <rect key="frame" x="10" y="447" width="355" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="JpT-8X-6Fc"/>
+                                    <constraint firstAttribute="height" constant="21" id="eYt-QQ-kG0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jl2-2o-iQb">
-                                <rect key="frame" x="10" y="476" width="355" height="191"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="191" id="795-av-SwX"/>
-                                </constraints>
+                                <rect key="frame" x="10" y="467" width="355" height="191"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -42,16 +39,17 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="jl2-2o-iQb" firstAttribute="bottom" secondItem="0fW-PL-eKo" secondAttribute="bottom" id="0Ys-nn-r7J"/>
-                            <constraint firstItem="ND9-O9-pA3" firstAttribute="trailing" secondItem="jl2-2o-iQb" secondAttribute="trailing" id="5pz-Sg-qwp"/>
-                            <constraint firstItem="jl2-2o-iQb" firstAttribute="top" secondItem="ND9-O9-pA3" secondAttribute="bottom" constant="8" symbolic="YES" id="FTS-1v-4ap"/>
-                            <constraint firstItem="ND9-O9-pA3" firstAttribute="leading" secondItem="jl2-2o-iQb" secondAttribute="leading" id="adN-3D-FG3"/>
-                            <constraint firstItem="ND9-O9-pA3" firstAttribute="top" secondItem="f0m-ec-O1s" secondAttribute="bottom" constant="8" symbolic="YES" id="gub-rI-bAW"/>
-                            <constraint firstItem="f0m-ec-O1s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iwt-xm-uEg"/>
-                            <constraint firstItem="ND9-O9-pA3" firstAttribute="leading" secondItem="0fW-PL-eKo" secondAttribute="leading" constant="10" id="kvH-13-Vc8"/>
-                            <constraint firstItem="f0m-ec-O1s" firstAttribute="top" secondItem="0fW-PL-eKo" secondAttribute="top" id="lWD-1U-vo2"/>
-                            <constraint firstAttribute="trailing" secondItem="f0m-ec-O1s" secondAttribute="trailing" id="vUM-TY-8AC"/>
-                            <constraint firstItem="f0m-ec-O1s" firstAttribute="centerX" secondItem="ND9-O9-pA3" secondAttribute="centerX" id="wMw-nz-5CM"/>
+                            <constraint firstItem="ND9-O9-pA3" firstAttribute="leading" secondItem="0fW-PL-eKo" secondAttribute="leading" constant="10" id="09b-3W-HzH"/>
+                            <constraint firstItem="f0m-ec-O1s" firstAttribute="top" secondItem="0fW-PL-eKo" secondAttribute="top" id="8n3-Gu-ru9"/>
+                            <constraint firstItem="f0m-ec-O1s" firstAttribute="centerX" secondItem="ND9-O9-pA3" secondAttribute="centerX" id="E26-co-ThT"/>
+                            <constraint firstItem="0fW-PL-eKo" firstAttribute="bottom" secondItem="ND9-O9-pA3" secondAttribute="bottom" constant="199" id="HJx-Zn-GsH"/>
+                            <constraint firstItem="ND9-O9-pA3" firstAttribute="trailing" secondItem="jl2-2o-iQb" secondAttribute="trailing" id="Ipi-X8-lor"/>
+                            <constraint firstItem="jl2-2o-iQb" firstAttribute="top" secondItem="f0m-ec-O1s" secondAttribute="bottom" constant="28" id="NuY-6v-JFH"/>
+                            <constraint firstItem="ND9-O9-pA3" firstAttribute="leading" secondItem="jl2-2o-iQb" secondAttribute="leading" id="PYi-fd-NtE"/>
+                            <constraint firstItem="0fW-PL-eKo" firstAttribute="bottom" secondItem="jl2-2o-iQb" secondAttribute="bottom" constant="9" id="cGc-Oq-0kq"/>
+                            <constraint firstAttribute="trailing" secondItem="f0m-ec-O1s" secondAttribute="trailing" id="ehj-br-Pqp"/>
+                            <constraint firstItem="ND9-O9-pA3" firstAttribute="top" secondItem="f0m-ec-O1s" secondAttribute="bottom" constant="8" symbolic="YES" id="nNn-Zm-tHl"/>
+                            <constraint firstItem="f0m-ec-O1s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="o2V-tv-fjn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0fW-PL-eKo"/>
                     </view>
