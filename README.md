@@ -7,4 +7,4 @@ The app allows the user to:
 - retrieve a short blurb about its genus from Wikipedia
 
 
-![]("./AppImages/AppScreen.png")
+![Flower Detective](./AppImages/AppScreen.png)
