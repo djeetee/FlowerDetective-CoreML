@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Flower Detective-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FlowerExpert" customModuleProvider="target" sceneMemberID="viewController">
@@ -19,19 +19,43 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f0m-ec-O1s">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="375"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ND9-O9-pA3">
+                                <rect key="frame" x="10" y="447" width="355" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="JpT-8X-6Fc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="jl2-2o-iQb">
+                                <rect key="frame" x="10" y="476" width="355" height="191"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="191" id="795-av-SwX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="f0m-ec-O1s" firstAttribute="bottom" secondItem="0fW-PL-eKo" secondAttribute="bottom" id="Cub-Sh-LtM"/>
-                            <constraint firstItem="f0m-ec-O1s" firstAttribute="trailing" secondItem="0fW-PL-eKo" secondAttribute="trailing" id="Qy8-GP-HIl"/>
-                            <constraint firstItem="f0m-ec-O1s" firstAttribute="leading" secondItem="0fW-PL-eKo" secondAttribute="leading" id="TwE-TY-tag"/>
-                            <constraint firstItem="f0m-ec-O1s" firstAttribute="top" secondItem="0fW-PL-eKo" secondAttribute="top" id="vnM-o8-jZ9"/>
+                            <constraint firstItem="jl2-2o-iQb" firstAttribute="bottom" secondItem="0fW-PL-eKo" secondAttribute="bottom" id="0Ys-nn-r7J"/>
+                            <constraint firstItem="ND9-O9-pA3" firstAttribute="trailing" secondItem="jl2-2o-iQb" secondAttribute="trailing" id="5pz-Sg-qwp"/>
+                            <constraint firstItem="jl2-2o-iQb" firstAttribute="top" secondItem="ND9-O9-pA3" secondAttribute="bottom" constant="8" symbolic="YES" id="FTS-1v-4ap"/>
+                            <constraint firstItem="ND9-O9-pA3" firstAttribute="leading" secondItem="jl2-2o-iQb" secondAttribute="leading" id="adN-3D-FG3"/>
+                            <constraint firstItem="ND9-O9-pA3" firstAttribute="top" secondItem="f0m-ec-O1s" secondAttribute="bottom" constant="8" symbolic="YES" id="gub-rI-bAW"/>
+                            <constraint firstItem="f0m-ec-O1s" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iwt-xm-uEg"/>
+                            <constraint firstItem="ND9-O9-pA3" firstAttribute="leading" secondItem="0fW-PL-eKo" secondAttribute="leading" constant="10" id="kvH-13-Vc8"/>
+                            <constraint firstItem="f0m-ec-O1s" firstAttribute="top" secondItem="0fW-PL-eKo" secondAttribute="top" id="lWD-1U-vo2"/>
+                            <constraint firstAttribute="trailing" secondItem="f0m-ec-O1s" secondAttribute="trailing" id="vUM-TY-8AC"/>
+                            <constraint firstItem="f0m-ec-O1s" firstAttribute="centerX" secondItem="ND9-O9-pA3" secondAttribute="centerX" id="wMw-nz-5CM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0fW-PL-eKo"/>
                     </view>
-                    <navigationItem key="navigationItem" id="QIT-FA-hKu">
+                    <navigationItem key="navigationItem" title="Flower Detective" id="QIT-FA-hKu">
                         <barButtonItem key="rightBarButtonItem" systemItem="camera" id="fDX-ap-4a7">
                             <connections>
                                 <action selector="cameraButtonTapped:" destination="BYZ-38-t0r" id="YjF-Rh-9P1"/>
@@ -39,6 +63,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="flowerDescription" destination="jl2-2o-iQb" id="XN9-sz-Uwl"/>
+                        <outlet property="flowerLabel" destination="ND9-O9-pA3" id="RdU-0K-F7f"/>
                         <outlet property="pickedImageView" destination="f0m-ec-O1s" id="z5V-oK-hfd"/>
                     </connections>
                 </viewController>

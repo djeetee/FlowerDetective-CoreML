@@ -5,6 +5,9 @@
 ## macOS
 .DS_Store
 
+## project-specific
+NetworkManager.swift
+
 ## CoreML
 *.mlmodel
 

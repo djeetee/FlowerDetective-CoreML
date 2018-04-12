@@ -45,12 +45,35 @@ struct Page: Codable {
     }
 }
 
-//WikipediaData(batchComplete: Optional(""), query: Optional(FlowerExpert.Query(pageIds: Optional(["1548538"]), pages: Optional(FlowerExpert.Page(pageId: nil, ns: nil, title: nil, extract: nil)))))
+/*
+ Sample JSON returned by Wikipedia
+ 
+{
+    "batchcomplete": "",
+    "query": {
+        "pageids": [
+        "143540"
+        ],
+        "pages": {
+            "143540": {
+                "pageid": 143540,
+                "ns": 0,
+                "title": "Poinsettia",
+                "extract": "The poinsettia ( or ) (Euphorbia pulcherrima) is a commercially important plant species of the diverse spurge family (Euphorbiaceae). The species is indigenous to Mexico. It is particularly well known for its red and green foliage and is widely used in Christmas floral displays. It derives its common English name from Joel Roberts Poinsett, the first United States Minister to Mexico, who introduced the plant to the US in 1825."
+            }
+        }
+    }
+}
 
-
+*/
+ 
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    @IBOutlet weak var pickedImageView: UIImageView!
     
+    @IBOutlet weak var pickedImageView: UIImageView!
+    @IBOutlet weak var flowerLabel: UILabel!
+    @IBOutlet weak var flowerDescription: UILabel!
+    
+   
     let imagePicker = UIImagePickerController()
     
     override func viewDidLoad() {
@@ -81,8 +104,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         // bye bye picker
         imagePicker.dismiss(animated: true, completion: nil)
-
     }
+    
+    func uiUpdateLabels(label: String, extract: String) {
+        self.flowerLabel.text = label
+        self.flowerDescription.text  = extract
+    }
+    
     
     // called with the image to classify
     func classifyImage(image: CIImage) {
@@ -99,9 +127,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             let flowerName = (flowerClassification?.identifier.capitalized)!
             
             // set the title bar to the classification result
-            self.navigationItem.title = flowerName
+            self.flowerLabel.text = flowerName
             
-            print(self.getWikipediaInfo(flowerName: flowerName))
+            let extract = self.getWikipediaInfo(flowerName: flowerName)
+            self.flowerDescription.text = extract
         }
         
         // create the request handler
@@ -118,7 +147,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func getWikipediaInfo(flowerName: String) -> String {
-        var flowerDescription = "N/A"
+        var extract: String = "N/A"
         
         let wikipediaURl = "https://en.wikipedia.org/w/api.php?"
         let urlParameters = "format=json&" +
@@ -129,46 +158,55 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                             "titles=" + flowerName.replacingOccurrences(of: " ", with: "%20") + "&" +
                             "indexpageids=&" +
                             "redirects=1"
-        
   
         guard let url = URL(string: wikipediaURl + urlParameters) else {
-            return flowerDescription
+            return extract
         }
         
+        // calling Wikipedia... (synchronously using semaphores to simplify things)
+        let semaphore = DispatchSemaphore(value: 0)
+
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             // network call completetion handler
+            
+            // was there an error?
             if error != nil {
                 print("Response: \(error!)")
                 return
             }
             
+            // got data?
             guard let data = data else {
                 return
             }
             
+            // decode the data
             do {
                 let decoder = JSONDecoder()
                 let wikipediaData = try decoder.decode(WikipediaData.self, from: data)
                 
-                print(wikipediaData)
+                // key to the first (only) page that contains the desciption
+                let pageID = wikipediaData.query.pageIds.first!
+                let wikiDesc = (wikipediaData.query.pages[pageID]?.extract)!
+
+                extract = wikiDesc
                 
-                let key = wikipediaData.query.pageIds.first!
-                print(key)
-                
-                let extract = wikipediaData.query.pages[key]?.extract
-                print(extract!)
-                
-                
-                //flowerDescription = wikipediaData
+                // release
+                semaphore.signal()
+
+
             } catch {
-                print("Decoding: \(error)")
+                print("Decoding: \(error)")     // something went wrong while decoding
             }
         }
-            
+
+        // run the task
         task.resume()
         
-        return flowerDescription
+        // wait for the network call and data parsing to be completed
+        semaphore.wait()
         
+        return extract
     }
     
     
