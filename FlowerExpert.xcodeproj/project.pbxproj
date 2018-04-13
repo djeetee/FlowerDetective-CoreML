@@ -14,7 +14,6 @@
 		0898FB2D207E43DF00BBE923 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0898FB2B207E43DF00BBE923 /* LaunchScreen.storyboard */; };
 		0898FB38207E43DF00BBE923 /* FlowerExpertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0898FB37207E43DF00BBE923 /* FlowerExpertTests.swift */; };
 		0898FB43207E447200BBE923 /* FlowerClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 0898FB42207E447200BBE923 /* FlowerClassifier.mlmodel */; };
-		08A5B50B207FC67E00DFC024 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08A5B50A207FC67E00DFC024 /* NetworkManager.swift */; };
 		08A5B50F208007E100DFC024 /* Icon-App-76x76@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08A5B50E208007E100DFC024 /* Icon-App-76x76@3x.png */; };
 /* End PBXBuildFile section */
 
@@ -40,7 +39,6 @@
 		0898FB37207E43DF00BBE923 /* FlowerExpertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerExpertTests.swift; sourceTree = "<group>"; };
 		0898FB39207E43DF00BBE923 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0898FB42207E447200BBE923 /* FlowerClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = FlowerClassifier.mlmodel; sourceTree = "<group>"; };
-		08A5B50A207FC67E00DFC024 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		08A5B50E208007E100DFC024 /* Icon-App-76x76@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-App-76x76@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,7 +63,6 @@
 		0898FB16207E43DB00BBE923 = {
 			isa = PBXGroup;
 			children = (
-				08A5B50A207FC67E00DFC024 /* NetworkManager.swift */,
 				0898FB21207E43DB00BBE923 /* FlowerExpert */,
 				0898FB36207E43DF00BBE923 /* FlowerExpertTests */,
 				0898FB20207E43DB00BBE923 /* Products */,
@@ -207,7 +204,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08A5B50B207FC67E00DFC024 /* NetworkManager.swift in Sources */,
 				0898FB43207E447200BBE923 /* FlowerClassifier.mlmodel in Sources */,
 				0898FB25207E43DB00BBE923 /* ViewController.swift in Sources */,
 				0898FB23207E43DB00BBE923 /* AppDelegate.swift in Sources */,
