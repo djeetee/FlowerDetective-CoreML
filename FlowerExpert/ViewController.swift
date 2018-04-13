@@ -114,6 +114,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     // called with the image to classify
     func classifyImage(image: CIImage) {
+        
         // Init the model
         guard let model = try? VNCoreMLModel(for: FlowerClassifier().model) else {
             fatalError("Unable to intialize the CoreML model")
@@ -126,11 +127,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             
             let flowerName = (flowerClassification?.identifier.capitalized)!
             
-            // set the title bar to the classification result
-            self.flowerLabel.text = flowerName
-            
-            let extract = self.getWikipediaInfo(flowerName: flowerName)
-            self.flowerDescription.text = extract
+            self.getWikipediaInfo(flowerName: flowerName)
         }
         
         // create the request handler
@@ -142,12 +139,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         } catch {
             print(error)
         }
-        
-        
     }
     
-    func getWikipediaInfo(flowerName: String) -> String {
-        var extract: String = "N/A"
+    
+    func updateUIElements(label: String, extract: String) {
+        self.flowerLabel.text = label
+        self.flowerDescription.text = extract
+    }
+    
+    
+    func getWikipediaInfo(flowerName: String) {
         
         let wikipediaURl = "https://en.wikipedia.org/w/api.php?"
         let urlParameters = "format=json&" +
@@ -160,12 +161,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                             "redirects=1"
   
         guard let url = URL(string: wikipediaURl + urlParameters) else {
-            return extract
+            return
         }
         
-        // calling Wikipedia... (synchronously using semaphores to simplify things)
-        let semaphore = DispatchSemaphore(value: 0)
-
+        // calling Wikipedia...
         let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
             // network call completetion handler
             
@@ -189,11 +188,10 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 let pageID = wikipediaData.query.pageIds.first!
                 let wikiDesc = (wikipediaData.query.pages[pageID]?.extract)!
 
-                extract = wikiDesc
-                
-                // release
-                semaphore.signal()
-
+                // play nice with iOS. All UI updates should happen on the main thread
+                DispatchQueue.main.async {
+                    self.updateUIElements(label: flowerName, extract: wikiDesc)
+                }
 
             } catch {
                 print("Decoding: \(error)")     // something went wrong while decoding
@@ -202,11 +200,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
 
         // run the task
         task.resume()
-        
-        // wait for the network call and data parsing to be completed
-        semaphore.wait()
-        
-        return extract
     }
     
     
